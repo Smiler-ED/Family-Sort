@@ -13,7 +13,7 @@ int main ()
     {
         int valor = arreglo[k];  //usamos una variable para poder hacer el cambio
         int j= k-1;  	//la variable j reemplazara al elemento anterior
-        while(j>=0 && valor <= arreglo[j])  //aqui empieza la magia
+        while(j>=0 && valor <= arreglo[j])  //start
         {
             arreglo[j+1] = arreglo[j];   //cambia las posiciones solo si se cumple la condicion
             j = j-1;  //disminuye el valor para seguir comprobando si los numeros anteriores necesitan ordenarse
