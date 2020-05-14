@@ -1,33 +1,33 @@
 #include <iostream>
 using namespace std;
-void intercambio(int* a, int* b) // Intercambia dos elementos - Función de utilidad
+void intercambio(int* a, int* b)
 {
     int t = *a;
     *a = *b;
     *b = t;
 }
-int particion (int arreglo[], int inicio, int fin)  // particiona la matriz usando el último elemento como pivote
+int particion (int arreglo[], int inicio, int fin) 
 {
     int pivote = arreglo[fin];    // pivote
     int i = (inicio - 1);
 
     for (int j = inicio; j <= fin- 1; j++)
     {
-        if (arreglo[j] <= pivote) // si el elemento actual es más pequeño que el pivote, incremente el elemento bajo
-        { 							// intercambia elementos en i y j
-            i++;    // índice de incremento del elemento más pequeño
+        if (arreglo[j] <= pivote)
+        { 							
+            i++;  
             intercambio(&arreglo[i], &arreglo[j]);
         }
     }
     intercambio(&arreglo[i + 1], &arreglo[fin]);
     return (i + 1);
 }
-void quickSort(int arreglo[], int inicio, int fin) //algoritmo quicksort
+void quickSort(int arreglo[], int inicio, int fin)
 {
     if (inicio < fin)
     {
-        int pivote = particion(arreglo, inicio, fin);  //particiona el arreglo
-        // clasifica las sub matrices de forma independiente
+        int pivote = particion(arreglo, inicio, fin); 
+    
         quickSort(arreglo, inicio, pivote - 1);
         quickSort(arreglo, pivote + 1, fin);
     }
