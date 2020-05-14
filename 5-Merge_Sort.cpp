@@ -5,11 +5,10 @@ void merge_sort(int *arr, int inicio, int fin)
 {
     int medio;
     if (inicio < fin){
-// divide el arreglo a mitad y ordena de forma independiente usando la combinación de ordenación
 		medio=(inicio+fin)/2;
         merge_sort(arr,inicio,medio);
         merge_sort(arr,medio+1,fin);
-        merge(arr,inicio,fin,medio); // fusionar arreglos ordenadas
+        merge(arr,inicio,fin,medio); 
     }
 }
 // Merge sort
@@ -45,11 +44,11 @@ void merge(int *arr, int inicio, int fin, int medio)
         arr[i] = c[i];
     }
 }
- // lee la matriz de entrada y ordena a mergesort
+
 int main()
 {
     int arreglo[30], num;
-    cout<<"Ingrese el número de elementos que se ordenaran:";
+    cout<<"Ingrese el nÃºmero de elementos que se ordenaran:";
     cin>>num;
     cout<<"Enter "<<num<<" elementos a ordenar : ";
     for (int i = 0; i < num; i++) { cin>>arreglo[i];
