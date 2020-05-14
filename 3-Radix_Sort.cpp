@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-int getMax(int arreglo[], int n) // Obtenga el valor m·ximo de la matriz
+int getMax(int arreglo[], int n) // Obtenga el valor m√°ximo de la matriz
 {
 int maximo = arreglo[0];
 for (int i = 1; i < n; i++)
@@ -10,24 +10,24 @@ return maximo;
 }
 void countSort(int arreglo[], int n, int exp)
 {
-int salida[n], i, count[10] = {0};	// Count [i] array contar· el n˙mero de valores de matriz que tengan ese dÌgito 'i' en su enesimo lugar.
-for (i = 0; i < n; i++) 	// Cuente el n˙mero de veces que cada dÌgito ocurriÛ en enesimo lugar en cada entrada.
+int salida[n], i, count[10] = {0};	
+for (i = 0; i < n; i++) 	
 count[(arreglo[i] / exp) % 10]++;
-for (i = 1; i < 10; i++) 	// C·lculo de su recuento acumulativo.
+for (i = 1; i < 10; i++) 	
 count[i] += count[i-1];
-for (i = n - 1; i >= 0; i--) 	// Insertar valores de acuerdo con el dÌgito '(arr [i] / exp)% 10' obtenido en el recuento [(arr [i] / exp)% 10].
+for (i = n - 1; i >= 0; i--) 
 {
 salida[count[(arreglo[i] / exp) % 10] - 1] = arreglo[i];
 count[(arreglo[i] / exp) % 10]--;
 }
-for (i = 0; i < n; i++) 	// Asignando el resultado al puntero arreglo de main ().
+for (i = 0; i < n; i++) 	
 arreglo[i] = salida[i];
 }
-void radixsort(int arreglo[], int n) // Ordenar arr [] de tamaÒo n usando Radix Sort.
+void radixsort(int arreglo[], int n)
 {
 int exp, m;
 m = getMax(arreglo, n);
-for (exp = 1; m/exp > 0; exp *= 10) 	// Llamando a countSort () para el dÌgito en enesimo lugar en cada entrada.
+for (exp = 1; m/exp > 0; exp *= 10) 	
 countSort(arreglo, n, exp);
 }
 int main()
@@ -42,7 +42,7 @@ cout<<"Introducir elemento: "<<i+1<<": ";
 cin>>arreglo[i];
 }
 radixsort(arreglo, n);
-cout<<"\nDatos ordenados: "; 	// Imprimir los datos ordenados.
+cout<<"\nDatos ordenados: "; 	
 for (i = 0; i < n; i++)
 cout<<"->"<<arreglo[i];
 return 0;
